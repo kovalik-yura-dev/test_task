@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    include: exchangerateapi,dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test_task
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+exchange:
+  api-url: https://data.fixer.io/api/latest
+  access-key: ${FIXER_API_KEY}
+
+exchangerate-api:
+    api-url: https://v6.exchangerate-api.com/v6
+    api-key: ${EXCHANGERATE_API_KEY}

@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: KYU
+      changes:
+        - createTable:
+            tableName: currency
+            columns:
+              - column:
+                  name: code
+                  type: varchar(3)
+                  constraints:
+                    primaryKey: true
+  - changeSet:
+      id: 2
+      author: KYU
+      changes:
+        - insert:
+            tableName: currency
+            columns:
+              - column:
+                  name: code
+                  value: EUR
