@@ -1,13 +1,18 @@
 plugins {
     id 'org.springframework.boot' version '3.3.5'
     id 'io.spring.dependency-management' version '1.1.6'
+    id "io.freefair.lombok" version "8.11"
     id 'jacoco'
     id 'java'
 }
 
 group 'co.scribe'
 version '1.0-SNAPSHOT'
-sourceCompatibility = '21'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
 
 repositories {
     mavenCentral()
@@ -24,6 +29,7 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql:42.7.4'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.awaitility:awaitility:4.2.2'
 }
 
 jacoco {

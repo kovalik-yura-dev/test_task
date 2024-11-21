@@ -1,12 +1,14 @@
 package co.scribe.testtask.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Map;
 
 @Entity
+@Data
 public class ExchangeRate {
 
     @Id
@@ -22,39 +24,5 @@ public class ExchangeRate {
     @MapKeyColumn(name = "currency")
     @Column(name = "rate")
     private Map<String, BigDecimal> rates;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getBaseCurrency() {
-        return baseCurrency;
-    }
-
-    public void setBaseCurrency(String baseCurrency) {
-        this.baseCurrency = baseCurrency;
-    }
-
-    public LocalDateTime getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public void setLastUpdated(LocalDateTime lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
-
-
-    public Map<String, BigDecimal> getRates() {
-        return rates;
-    }
-
-    public void setRates(Map<String, BigDecimal> rates) {
-        this.rates = rates;
-    }
-
 
 }

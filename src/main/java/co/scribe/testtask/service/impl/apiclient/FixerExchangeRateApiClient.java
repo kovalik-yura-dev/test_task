@@ -3,12 +3,14 @@ package co.scribe.testtask.service.impl.apiclient;
 import co.scribe.testtask.model.ExchangeRateResponse;
 import co.scribe.testtask.service.ExchangeRateApiClient;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 @Profile("fixer")
+@ConditionalOnMissingBean(ExchangeRateApiClient.class)
 public class FixerExchangeRateApiClient implements ExchangeRateApiClient {
 
     private final RestTemplate restTemplate;
